@@ -1,0 +1,46 @@
+{
+  "name": "hello-mern",
+  "version": "0.0.1",
+  "description": "A starter website",
+  "main": "src/server/index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "npm run build && node -r esm src/server/index.js",
+    "client": "webpack-dev-server -r esm --mode development --devtool inline-source-map --hot",
+    "server": "nodemon -r esm src/server/index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Hazzen",
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.0.84",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.9",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.5",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^0.1.19",
+    "concurrently": "^4.0.1",
+    "css-loader": "^1.0.1",
+    "env-cmd": "^8.0.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.18.6",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}

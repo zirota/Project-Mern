@@ -1,0 +1,7 @@
+# .dot files
+.env
+
+# folders
+node_modules/
+dist/
+
