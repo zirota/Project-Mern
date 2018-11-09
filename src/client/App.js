@@ -1,25 +1,43 @@
 import React, { Component } from 'react';
 import '../../public/css/main.css';
+import LoginForm from './LoginForm';
 
 // TODO: Convert me to .jsx
 
 export default class App extends Component {
-  state = { greetings: null };
+  state = {
+    greetings: null,
+    openLogin: false,
+  };
 
-  componentDidMount() {
-    // TODO: make async/await work
-    fetch('/api/healthcheck')
-      .then(res => res.json())
-      .then(res => this.setState({ greetings: res.healthcheck }));
-    // const healthcheck = await (await fetch('/api/healthcheck')).json();
-    // await this.setState({ greetings: healthcheck.healthcheck });
+  async componentDidMount() {
+    try {
+      const response = await fetch('/api/healthcheck');
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const healthcheck = await response.json();
+      this.setState({ greetings: healthcheck.healthcheck });
+    } catch (err) {
+      console.err(err);
+    }
+  }
+
+  toggleLoginForm = () => {
+    this.setState((state) => ({ openLogin: !state.openLogin }));
   }
 
   render() {
     const { greetings } = this.state;
     return (
-      <div>
-        {greetings ? <h1>{greetings}</h1> : <h1>Loading.. please wait!</h1>}
+      <div className="container">
+        <LoginForm openLogin={this.state.openLogin} />
+        <div>
+          <ul>
+            <li><a href="./">Home</a></li>
+            <li><button id="sign-in" type="button" onClick={this.toggleLoginForm}>Sign in</button></li>
+          </ul>
+        </div>
       </div>
     );
   }

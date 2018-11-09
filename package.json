@@ -4,7 +4,7 @@
   "description": "A starter website",
   "main": "src/server/index.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode production -r esm",
     "start": "npm run build && node -r esm src/server/index.js",
     "client": "webpack-dev-server -r esm --mode development --devtool inline-source-map --hot",
     "server": "nodemon -r esm src/server/index.js",

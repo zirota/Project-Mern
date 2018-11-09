@@ -6,3 +6,59 @@ body {
   font-family: 'Courier New', Courier, monospace;
   text-align:'center';
 }
+
+.container {
+  padding: 16px;
+}
+
+form {
+  border: 3px solid #f1f1f1
+}
+
+#login {
+  background-color: white;
+  position: absolute;
+  width: 95%;
+  width: calc(100% - 3.5em);
+  
+  transition: transform 500ms ease-out;
+  transform: translate3d(0, -300px, 0);
+  will-change: transform;
+}
+
+#login.show {
+  transform: translate3d(0, 0, 0);
+}
+
+#login input[type=text], #login input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#login button {
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 6px;
+  margin: 8px 0;
+  padding: 14px 20px;
+  color: #000d19;
+  background: #3cff2b;
+  font-size: 16px;
+}
+
+.close-btn {
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  color: #000;
+  font-size: 30px;
+  font-weight: bold;
+}

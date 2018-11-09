@@ -23,7 +23,7 @@ $ npm start
 ```
 
 ## Development
-To start the both frontend and backend servers with concurrently:
+To start both frontend and backend servers with concurrently:
 ```sh
 $ npm run dev
 ```
